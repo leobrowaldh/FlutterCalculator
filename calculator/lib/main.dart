@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 27, 95, 151),
+        ),
       ),
       home: const MyHomePage(),
     );
@@ -26,7 +28,13 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Calculator App'), centerTitle: true),
+      appBar: AppBar(
+        title: const Text('Calculator App'),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
+      ),
+      backgroundColor: Theme.of(context).colorScheme.onSurface,
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -34,7 +42,10 @@ class MyHomePage extends StatelessWidget {
 
             if (isMobile) {
               // 📱 Mobile: full screen
-              return SizedBox.expand(child: CalculatorWidget());
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox.expand(child: CalculatorWidget()),
+              );
             } else {
               // 💻 Desktop: centered with padding
               return Center(
@@ -48,6 +59,14 @@ class MyHomePage extends StatelessWidget {
               );
             }
           },
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Theme.of(context).colorScheme.primary,
+        child: Text(
+          "Calculator App © 2025",
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
         ),
       ),
     );
