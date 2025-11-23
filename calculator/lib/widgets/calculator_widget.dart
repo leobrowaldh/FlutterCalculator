@@ -8,22 +8,25 @@ class CalculatorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(flex: 1, child: Display()),
-        Expanded(
-          flex: 4,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 8.0),
-            child: Row(
-              children: const [
-                Expanded(flex: 3, child: MainKeyboard()),
-                Expanded(flex: 1, child: BigButtons()),
-              ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12.0),
+      child: Column(
+        children: [
+          Expanded(flex: 1, child: Display()),
+          Expanded(
+            flex: 4,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Row(
+                children: const [
+                  Expanded(flex: 3, child: MainKeyboard()),
+                  Expanded(flex: 1, child: BigButtons()),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
