@@ -41,18 +41,16 @@ class MyHomePage extends StatelessWidget {
             final isMobile = constraints.maxWidth < 600; // breakpoint
 
             if (isMobile) {
-              // 📱 Mobile: full screen
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox.expand(child: CalculatorWidget()),
               );
             } else {
-              // 💻 Desktop: centered with padding
               return Center(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(
-                    maxWidth: 400, // fixed width for calculator
-                    maxHeight: 600, // optional vertical limit
+                    maxWidth: 400,
+                    maxHeight: 600,
                   ),
                   child: CalculatorWidget(),
                 ),
