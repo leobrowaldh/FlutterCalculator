@@ -11,9 +11,12 @@ class Display extends StatelessWidget {
       child: SizedBox.expand(
         child: Align(
           alignment: Alignment.centerRight,
-          child: Text(
-            text.isEmpty ? '0' : text,
-            style: const TextStyle(fontSize: 50),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              text.isEmpty ? '0' : text,
+              style: const TextStyle(fontSize: 50),
+            ),
           ),
         ),
       ),

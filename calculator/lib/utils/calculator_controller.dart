@@ -13,13 +13,12 @@ class CalculatorController {
     } else if (label == '=') {
       _display = _evaluateExpression(_display);
     } else {
-      _display += label; // append numbers/operators
+      _display += label;
     }
   }
 
   String _evaluateExpression(String expr) {
     try {
-      // Simple check: only allow one operator
       final operators = ['+', '-', '*', '/'];
       int count = 0;
       for (var op in operators) {
@@ -42,6 +41,9 @@ class CalculatorController {
         result = double.parse(parts[0]) * double.parse(parts[1]);
       } else if (expr.contains('/')) {
         final parts = expr.split('/');
+        if (parts[1] == '0') {
+          return 'undefined';
+        }
         result = double.parse(parts[0]) / double.parse(parts[1]);
       } else {
         return expr;
@@ -51,7 +53,6 @@ class CalculatorController {
         result.truncateToDouble() == result ? 0 : 6,
       );
     } catch (e) {
-      // Any parsing/formatting error ends up here
       return 'error';
     }
   }
