@@ -32,6 +32,12 @@ migrate_working_dir/
 .pub/
 /build/
 /coverage/
+windows/flutter/ephemeral/
+*.apk
+*.so
+*.dll
+*.pdb
+
 
 # Symbolication related
 app.*.symbols

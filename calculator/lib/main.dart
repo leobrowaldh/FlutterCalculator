@@ -46,13 +46,16 @@ class MyHomePage extends StatelessWidget {
                 child: SizedBox.expand(child: CalculatorWidget()),
               );
             } else {
-              return Center(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    maxWidth: 400,
-                    maxHeight: 600,
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(
+                      maxWidth: 400,
+                      maxHeight: 600,
+                    ),
+                    child: CalculatorWidget(),
                   ),
-                  child: CalculatorWidget(),
                 ),
               );
             }
