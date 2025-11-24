@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 
-class Display extends StatefulWidget {
-  const Display({super.key});
+class Display extends StatelessWidget {
+  final String text;
+  const Display({super.key, required this.text});
 
-  @override
-  State<Display> createState() => _DisplayState();
-}
-
-class _DisplayState extends State<Display> {
   @override
   Widget build(BuildContext context) {
-    return const ColoredBox(
+    return ColoredBox(
       color: Colors.lightGreenAccent,
-      child: SizedBox.expand(child: Text('0', style: TextStyle(fontSize: 50))),
+      child: SizedBox.expand(
+        child: Align(
+          alignment: Alignment.centerRight,
+          child: Text(
+            text.isEmpty ? '0' : text,
+            style: const TextStyle(fontSize: 50),
+          ),
+        ),
+      ),
     );
   }
 }
